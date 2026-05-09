@@ -1,0 +1,479 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f7ff;
+  overflow-x: hidden;
+  color: #222;
+}
+
+.more {
+  display: none;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* HEADER */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 50px;
+
+  background: rgba(11, 27, 63, 0.9);
+  backdrop-filter: blur(10px);
+
+  z-index: 999;
+}
+
+header.scrolled {
+  background: #0b1b3f;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00d4ff;
+}
+
+/* HERO */
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 120px 20px;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+
+  background-size: cover;
+  background-position: center;
+
+  color: white;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 58px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.hero button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  background: #ff9800;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  transform: translateY(-3px);
+}
+
+/* SECTION */
+
+.section {
+  padding: 80px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 38px;
+}
+
+/* SERVICES */
+
+.services-grid {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.services-card::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+
+  transition: 0.6s;
+}
+
+.services-card:hover::before {
+  left: 100%;
+}
+
+.services-card {
+  background: white;
+  border-radius: 18px;
+  padding: 30px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-card:hover {
+  transform: translateY(-8px);
+}
+
+.services-card h3 {
+  margin-bottom: 15px;
+}
+
+.services-card p {
+  line-height: 1.7;
+  color: #555;
+}
+
+.services-card:hover {
+  transform: translateY(-10px) scale(1.03);
+
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+
+  color: white;
+
+  box-shadow: 0 15px 35px rgba(78, 84, 200, 0.35);
+}
+
+.services-card:hover p {
+  color: #f1f1f1;
+}
+
+.services-card:hover h3 {
+  color: white;
+}
+
+/* COUNTRY CARDS */
+
+.grid {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+
+  color: white;
+
+  border-radius: 20px;
+  
+
+  font-size: 28px;
+  font-weight: bold;
+
+  text-align: center;
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card p {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #f1f1f1;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+/* FORM */
+
+form {
+  max-width: 500px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea {
+  padding: 14px;
+  margin-bottom: 15px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  font-size: 15px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4e54c8;
+  box-shadow: 0 0 10px rgba(78, 84, 200, 0.2);
+}
+
+textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+form button {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+
+  background: #4e54c8;
+  color: white;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  background: #25d366;
+  color: white;
+
+  padding: 14px 18px;
+
+  border-radius: 50px;
+
+  text-decoration: none;
+  font-weight: bold;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  transition: 0.3s;
+}
+
+.whatsapp:hover {
+  transform: scale(1.08);
+}
+
+/* ANIMATION */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* FOOTER */
+
+footer {
+  background: #0b1b3f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  nav a {
+    margin: 8px;
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+}
+
+/* SOCIAL SIDEBAR */
+
+.social-sidebar {
+  position: fixed;
+
+  top: 70%;
+  left: 10px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  z-index: 9999;
+}
+
+.social {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-size: 24px;
+
+  text-decoration: none;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+
+  transition: 0.35s;
+}
+
+/* COLORS */
+
+.instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+}
+
+.facebook {
+  background: #1877f2;
+}
+
+.youtube {
+  background: #ff0000;
+}
+
+.linkedin {
+  background: #0077b5;
+}
+
+.whatsapp-social {
+  background: #25d366;
+}
+
+/* HOVER EFFECT */
+
+.social:hover {
+  transform: translateX(8px) scale(1.12);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .social-sidebar {
+    left: 10px;
+    gap: 14px;
+  }
+
+  .social {
+    width: 50px;
+    height: 50px;
+
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,31 @@
+<script>
+  let leads = JSON.parse(localStorage.getItem("leads") || "[]");
+
+  function deleteLead(index) {
+    leads.splice(index, 1);
+    localStorage.setItem("leads", JSON.stringify(leads));
+    location.reload();
+  }
+
+  const container = document.getElementById("leadContainer");
+
+  if (leads.length === 0) {
+    container.innerHTML = "<p style='text-align:center'>No Leads Found</p>";
+  }
+
+  leads.forEach((l, i) => {
+    container.innerHTML += `
+      <div class="card">
+        <h3>${l.name}</h3>
+        <p>📞 ${l.phone}</p>
+        <p>📧 ${l.email}</p>
+        <p>📝 ${l.message}</p>
+
+        <button onclick="deleteLead(${i})"
+          style="background:red;margin-top:10px;">
+          Delete
+        </button>
+      </div>
+    `;
+  });
+</script>
