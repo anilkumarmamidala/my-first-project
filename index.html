@@ -16,9 +16,15 @@
   <body>
     <!-- HEADER -->
     <header id="header">
-      <div class="logo">
-        <img class="logo-image" src="./assets/logo.jpeg" alt="i20careers" />
-        i20 Careers
+	
+	<div class="logo">
+    <img class="logo-image"
+         src="./assets/logo.jpeg"
+         alt="i20careers" />
+    i20Careers
+  </div>
+	
+      
 
         <!-- SOCIAL SIDEBAR -->
 
@@ -58,25 +64,38 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-overlay"></div>
+<section class="hero">
 
-      <div class="hero-main">
-        <!-- LEFT IMAGE -->
-        <div class="hero-image-section">
-          <img id="heroImage" src="./assets/home2.jpg" alt="Study Abroad" />
-        </div>
+  <!-- Background Slides -->
+  <div class="hero-slide active"
+       style="background-image: url('./assets/home2.jpg');">
+  </div>
 
-        <!-- RIGHT CONTENT -->
-        <div class="hero-content">
-          <h1 id="heroText">Study Abroad Made Easy</h1>
+  <div class="hero-slide"
+       style="background-image: url('./assets/home3.jpg');">
+  </div>
 
-          <p id="heroSub">USA • UK • Canada • Australia</p>
+  <div class="hero-slide"
+       style="background-image: url('./assets/usa.jpg');">
+  </div>
 
-          <button onclick="scrollToForm()">Get Free Consultation</button>
-        </div>
-      </div>
-    </section>
+  <!-- DARK OVERLAY -->
+  <div class="hero-overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="hero-content">
+    <h1 id="heroText">Study Abroad Made Easy</h1>
+
+    <p id="heroSub">
+      USA • UK • Canada • Australia
+    </p>
+
+    <button onclick="scrollToForm()">
+      Get Free Consultation
+    </button>
+  </div>
+
+</section>
 
     <!-- SERVICES -->
     <section id="services" class="section">
