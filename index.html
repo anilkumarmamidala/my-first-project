@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Overseas</title>
-
+    <title>i20 careers</title>
+<link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -16,24 +16,65 @@
   <body>
     <!-- HEADER -->
     <header id="header">
-      <div class="logo">🌍 Overseas</div>
+      <div class="logo">
+        <img class="logo-image" src="./assets/logo.jpeg" alt="i20careers" />
+        i20 Careers
 
+        <!-- SOCIAL SIDEBAR -->
+
+        <div class="social-sidebar">
+          <a href="#" class="social instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a href="#" class="social facebook" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+          <a href="#" class="social youtube" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+
+          <a href="#" class="social linkedin" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+          <a
+            href="https://wa.me/919999999999?text=Hi%20I%20want%20study%20abroad%20guidance"
+            class="social whatsapp-social"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
       <nav>
         <a href="#">Home</a>
         <a href="#services">Services</a>
         <a href="#countries">Countries</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
       </nav>
     </header>
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-content">
-        <h1 id="heroText">Study Abroad Made Easy</h1>
+      <div class="hero-overlay"></div>
 
-        <p id="heroSub">USA • UK • Canada • Australia</p>
+      <div class="hero-main">
+        <!-- LEFT IMAGE -->
+        <div class="hero-image-section">
+          <img id="heroImage" src="./assets/home2.jpg" alt="Study Abroad" />
+        </div>
 
-        <button onclick="scrollToForm()">Get Free Consultation</button>
+        <!-- RIGHT CONTENT -->
+        <div class="hero-content">
+          <h1 id="heroText">Study Abroad Made Easy</h1>
+
+          <p id="heroSub">USA • UK • Canada • Australia</p>
+
+          <button onclick="scrollToForm()">Get Free Consultation</button>
+        </div>
       </div>
     </section>
 
@@ -42,24 +83,6 @@
       <h2 class="section-title">Our Services</h2>
 
       <div class="services-grid">
-        <div class="services-card fade-in">
-          <h3>🎓 Admission Guidance</h3>
-
-          <p>
-            We help students choose the right course and university based on
-            profile and career goals.
-          </p>
-        </div>
-
-        <div class="services-card fade-in">
-          <h3>📄 Visa Processing</h3>
-
-          <p>
-            Complete visa support including SOP, documentation and interview
-            preparation.
-          </p>
-        </div>
-
         <div class="services-card fade-in">
           <h3>💼 Career Counseling</h3>
 
@@ -77,81 +100,168 @@
             preference.
           </p>
         </div>
+        <div class="services-card fade-in">
+          <h3>🎓 Admission</h3>
+
+          <p>
+            We help students choose the right course and university based on
+            profile and career goals.
+          </p>
+        </div>
+
+        <div class="services-card fade-in">
+          <h3>📄 Visa Processing</h3>
+
+          <p>
+            Complete visa support including SOP, documentation and interview
+            preparation.
+          </p>
+        </div>
+        <div class="services-card fade-in">
+          <h3>💰 Scholarship Assistance</h3>
+
+          <p>
+            We assist in finding and applying for scholarships to make education
+            more affordable.
+          </p>
+        </div>
       </div>
     </section>
 
     <section id="countries" class="section">
       <h2 class="section-title">Top Countries</h2>
-    
-    <div class="grid">
-	
-	<div class="card">
-        <h2>UK</h2>
-        <div class="card-img"></div>
-        <img src="./assets/uk.jpg" alt="UK" />
-        <p>Known for high-quality education and shorter course durations.</p>
 
-        <p id="ukMore" class="more">
-          The UK provides 1-year Master’s programs, globally recognized degrees,
-          post-study work visa options, and strong academic excellence in
-          Business, Law, and Arts.
-        </p>
+      <div class="grid">
+        <div class="card">
+          <h2>UK</h2>
+          <div class="card-img"></div>
+          <img src="./assets/uk.jpg" alt="UK" />
+          <p>Known for high-quality education and shorter course durations.</p>
 
-        <button onclick="toggleMore('ukMore', this)">See More</button>
-      </div>
-      
-      <div class="card">
-        <h2>CANADA</h2>
-        <div class="card-img"></div>
-        <img src="./assets/canada.jpg" alt="Canada" />
-        <p>Popular for affordable education and PR opportunities.</p>
+          <p id="ukMore" class="more">
+            The UK provides 1-year Master’s programs, globally recognized
+            degrees, post-study work visa options, and strong academic
+            excellence in Business, Law, and Arts.
+          </p>
 
-        <p id="canadaMore" class="more">
-          Canada offers high-quality education, easy student visa process,
-          part-time work options, and strong immigration pathways leading to
-          permanent residency.
-        </p>
-
-        <button onclick="toggleMore('canadaMore', this)">See More</button>
-      </div>
-      <div class="card">
-        <h2>AUSTRALIA</h2>
-        <div class="card-img"></div>
-        <img src="./assets/aus.jpg" alt="Australia" />
-        <p>Great balance of education quality and lifestyle.</p>
-
-        <p id="ausMore" class="more">
-          Australia is known for top universities, work opportunities during
-          studies, post-study work visas, and excellent living standards for
-          international students.
-        </p>
-
-        <button onclick="toggleMore('ausMore', this)">See More</button>
-      </div>
-	  <div class="card">
-        <h2>USA</h2>
-        <div class="card-img">
-          <img src="./assets/usa.jpg" alt="USA" />
+          <button onclick="toggleMore('ukMore', this)">See More</button>
         </div>
-        <p>
-          World’s top destination for higher education and research
-          opportunities.
-        </p>
 
-        <p id="usaMore" class="more">
-          The USA offers globally ranked universities, flexible course options,
-          OPT/CPT work opportunities, and strong career growth in fields like
-          IT, Business, Engineering, and Healthcare.
-        </p>
+        <div class="card">
+          <h2>IRELAND</h2>
+          <div class="card-img"></div>
+          <img src="./assets/ireland.jpg" alt="IRELAND" />
+          <p>Known for high-quality education and shorter course durations.</p>
 
-        <button onclick="toggleMore('usaMore', this)">See More</button>
+          <p id="ukMore" class="more">
+            The IRELAND provides 1-year Master’s programs, globally recognized
+            degrees, post-study work visa options, and strong academic
+            excellence in Business, Law, and Arts.
+          </p>
+
+          <button onclick="toggleMore('ukMore', this)">See More</button>
+        </div>
+
+        <div class="card">
+          <h2>New Zealand</h2>
+          <div class="card-img"></div>
+          <img src="./assets/newz.jpeg" alt="New Zealand" />
+          <p>Known for high-quality education and shorter course durations.</p>
+
+          <p id="ukMore" class="more">
+            The New Zealand provides 1-year Master’s programs, globally
+            recognized degrees, post-study work visa options, and strong
+            academic excellence in Business, Law, and Arts.
+          </p>
+
+          <button onclick="toggleMore('ukMore', this)">See More</button>
+        </div>
+
+        <div class="card">
+          <h2>CANADA</h2>
+          <div class="card-img"></div>
+          <img src="./assets/canada.jpg" alt="Canada" />
+          <p>Popular for affordable education and PR opportunities.</p>
+
+          <p id="canadaMore" class="more">
+            Canada offers high-quality education, easy student visa process,
+            part-time work options, and strong immigration pathways leading to
+            permanent residency.
+          </p>
+
+          <button onclick="toggleMore('canadaMore', this)">See More</button>
+        </div>
+        <div class="card">
+          <h2>AUSTRALIA</h2>
+          <div class="card-img"></div>
+          <img src="./assets/aus.jpg" alt="Australia" />
+          <p>Great balance of education quality and lifestyle.</p>
+
+          <p id="ausMore" class="more">
+            Australia is known for top universities, work opportunities during
+            studies, post-study work visas, and excellent living standards for
+            international students.
+          </p>
+
+          <button onclick="toggleMore('ausMore', this)">See More</button>
+        </div>
+        <div class="card">
+          <h2>GERMANY</h2>
+          <div class="card-img"></div>
+          <img src="./assets/germany.jpg" alt="Germany" />
+
+          <p>
+            World’s top destination for higher education and research
+            opportunities.
+          </p>
+
+          <p id="usaMore" class="more">
+            The Germany offers globally ranked universities, flexible course
+            options, OPT/CPT work opportunities, and strong career growth in
+            fields like IT, Business, Engineering, and Healthcare.
+          </p>
+
+          <button onclick="toggleMore('usaMore', this)">See More</button>
+        </div>
+
+        <div class="card">
+          <h2>USA</h2>
+          <div class="card-img"></div>
+          <img src="./assets/usa.jpg" alt="USA" />
+
+          <p>
+            World’s top destination for higher education and research
+            opportunities.
+          </p>
+
+          <p id="usaMore" class="more">
+            The USA offers globally ranked universities, flexible course
+            options, OPT/CPT work opportunities, and strong career growth in
+            fields like IT, Business, Engineering, and Healthcare.
+          </p>
+
+          <button onclick="toggleMore('usaMore', this)">See More</button>
+        </div>
       </div>
-      
-    </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="section">
+      <div class="contact-header">
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>
+          Have questions about studying abroad? Our experts are here to help!
+          Contact us for personalized guidance and support.
+        </p>
+
+        <p>
+          <i style="color:blue" class="fa-solid fa-phone"></i> Phone: +91 7330603703
+          <br><br>
+          <i style="color:blue" class="fa-regular fa-envelope"></i> Email: info@i20careers.com
+        </p>
+      </div>
+      <div class="contact-bg">
       <h2 class="section-title">Contact Us</h2>
 
       <form id="leadForm">
@@ -165,35 +275,9 @@
 
         <button type="submit">Submit</button>
       </form>
+      </div>
+      </div>
     </section>
-
-    <!-- SOCIAL SIDEBAR -->
-
-    <div class="social-sidebar">
-      <a href="#" class="social instagram" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
-
-      <a href="#" class="social facebook" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-
-      <a href="#" class="social youtube" target="_blank">
-        <i class="fab fa-youtube"></i>
-      </a>
-
-      <a href="#" class="social linkedin" target="_blank">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-
-      <a
-        href="https://wa.me/919999999999?text=Hi%20I%20want%20study%20abroad%20guidance"
-        class="social whatsapp-social"
-        target="_blank"
-      >
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </div>
 
     <!-- WHATSAPP -->
     <a
@@ -206,7 +290,7 @@
 
     <!-- FOOTER -->
     <footer>© 2024 Overseas</footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
