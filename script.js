@@ -4,22 +4,31 @@
 // HERO SLIDER
 // ======================
 
-const slides = [
+// ======================
+// HERO SLIDER
+// ======================
+
+const slides = document.querySelectorAll(".hero-slide");
+
+const heroText =
+  document.getElementById("heroText");
+
+const heroSub =
+  document.getElementById("heroSub");
+
+const heroData = [
 
   {
-    photo: "./assets/home2.jpg",
     title: "Study Abroad Made Easy",
     sub: "USA • UK • Canada • Australia"
   },
 
   {
-    photo: "./assets/home3.jpg",
     title: "Get Admission in Top Universities",
     sub: "Scholarship Guidance Available"
   },
 
   {
-    photo: "./assets/home4.jpg",
     title: "Fast Visa Approval Support",
     sub: "Expert Guidance Step-by-Step"
   }
@@ -30,44 +39,41 @@ let currentSlide = 0;
 
 function updateHero() {
 
-  const title =
-    document.getElementById("heroText");
+  // REMOVE ACTIVE CLASS
+  slides.forEach(slide => {
+    slide.classList.remove("active");
+  });
 
-  const sub =
-    document.getElementById("heroSub");
+  // NEXT SLIDE
+  currentSlide =
+    (currentSlide + 1) % slides.length;
 
-  const image =
-    document.getElementById("heroImage");
+  // SHOW ACTIVE SLIDE
+  slides[currentSlide]
+    .classList.add("active");
 
-  // fade out
-  title.style.opacity = 0;
-  sub.style.opacity = 0;
-  image.style.opacity = 0;
+  // TEXT FADE EFFECT
+  heroText.style.opacity = 0;
+  heroSub.style.opacity = 0;
 
   setTimeout(() => {
 
-    currentSlide =
-      (currentSlide + 1) % slides.length;
+    heroText.innerText =
+      heroData[currentSlide].title;
 
-    title.innerText =
-      slides[currentSlide].title;
+    heroSub.innerText =
+      heroData[currentSlide].sub;
 
-    sub.innerText =
-      slides[currentSlide].sub;
-
-    image.src =
-      slides[currentSlide].photo;
-
-    // fade in
-    title.style.opacity = 1;
-    sub.style.opacity = 1;
-    image.style.opacity = 1;
+    heroText.style.opacity = 1;
+    heroSub.style.opacity = 1;
 
   }, 500);
 }
 
-// AUTO CHANGE
+// AUTO SLIDE
 setInterval(updateHero, 4000);
+// AUTO CHANGE
+
 // SCROLL TO CONTACT
 
 function scrollToForm(){
