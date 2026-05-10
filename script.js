@@ -1,48 +1,73 @@
+
+
+// ======================
 // HERO SLIDER
+// ======================
 
 const slides = [
+
   {
+    photo: "./assets/home2.jpg",
     title: "Study Abroad Made Easy",
     sub: "USA • UK • Canada • Australia"
   },
 
   {
+    photo: "./assets/home3.jpg",
     title: "Get Admission in Top Universities",
     sub: "Scholarship Guidance Available"
   },
 
   {
+    photo: "./assets/home4.jpg",
     title: "Fast Visa Approval Support",
     sub: "Expert Guidance Step-by-Step"
   }
+
 ];
 
 let currentSlide = 0;
 
-function updateHero(){
+function updateHero() {
 
-  const title = document.getElementById("heroText");
-  const sub = document.getElementById("heroSub");
+  const title =
+    document.getElementById("heroText");
 
+  const sub =
+    document.getElementById("heroSub");
+
+  const image =
+    document.getElementById("heroImage");
+
+  // fade out
   title.style.opacity = 0;
   sub.style.opacity = 0;
+  image.style.opacity = 0;
 
   setTimeout(() => {
-
-    title.innerText = slides[currentSlide].title;
-    sub.innerText = slides[currentSlide].sub;
-
-    title.style.opacity = 1;
-    sub.style.opacity = 1;
 
     currentSlide =
       (currentSlide + 1) % slides.length;
 
-  },300);
+    title.innerText =
+      slides[currentSlide].title;
+
+    sub.innerText =
+      slides[currentSlide].sub;
+
+    image.src =
+      slides[currentSlide].photo;
+
+    // fade in
+    title.style.opacity = 1;
+    sub.style.opacity = 1;
+    image.style.opacity = 1;
+
+  }, 500);
 }
 
-setInterval(updateHero,3000);
-
+// AUTO CHANGE
+setInterval(updateHero, 4000);
 // SCROLL TO CONTACT
 
 function scrollToForm(){
@@ -56,52 +81,32 @@ function scrollToForm(){
 
 // SAVE LEAD
 
-const form =
-  document.getElementById("leadForm");
+  emailjs.init("YOUR_PUBLIC_KEY");
 
-form.addEventListener("submit", saveLead);
+  document
+    .getElementById("leadForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
 
-function saveLead(e){
+      const params = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("msg").value,
+      };
 
-  e.preventDefault();
+      emailjs
+        .send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
+        .then(function () {
+          alert("Message sent successfully!");
+          document.getElementById("leadForm").reset();
+        })
+        .catch(function (error) {
+          alert("Failed to send message");
+          console.log(error);
+        });
+    });
 
-  const lead = {
-
-    name:
-      document.getElementById("name").value,
-
-    phone:
-      document.getElementById("phone").value,
-
-    email:
-      document.getElementById("email").value,
-
-    message:
-      document.getElementById("msg").value
-  };
-
-  let leads = [];
-
-  try{
-    leads =
-      JSON.parse(localStorage.getItem("leads"))
-      || [];
-  }
-  catch{
-    leads = [];
-  }
-
-  leads.push(lead);
-
-  localStorage.setItem(
-    "leads",
-    JSON.stringify(leads)
-  );
-
-  alert("Lead Submitted Successfully!");
-
-  form.reset();
-}
 
 // STICKY HEADER
 
