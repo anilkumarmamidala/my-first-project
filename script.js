@@ -1,20 +1,12 @@
-
-
-// ======================
-// HERO SLIDER
-// ======================
-
 // ======================
 // HERO SLIDER
 // ======================
 
 const slides = document.querySelectorAll(".hero-slide");
 
-const heroText =
-  document.getElementById("heroText");
+const heroText = document.getElementById("heroText");
 
-const heroSub =
-  document.getElementById("heroSub");
+const heroSub = document.getElementById("heroSub");
 
 const heroData = [
 
@@ -37,22 +29,27 @@ const heroData = [
 
 let currentSlide = 0;
 
+// FIRST SLIDE ACTIVE
+if(slides.length > 0){
+  slides[0].classList.add("active");
+}
+
 function updateHero() {
 
-  // REMOVE ACTIVE CLASS
+  // REMOVE ACTIVE
   slides.forEach(slide => {
     slide.classList.remove("active");
   });
 
-  // NEXT SLIDE
+  // NEXT INDEX
   currentSlide =
     (currentSlide + 1) % slides.length;
 
-  // SHOW ACTIVE SLIDE
+  // SHOW NEXT SLIDE
   slides[currentSlide]
     .classList.add("active");
 
-  // TEXT FADE EFFECT
+  // TEXT ANIMATION
   heroText.style.opacity = 0;
   heroSub.style.opacity = 0;
 
@@ -70,51 +67,96 @@ function updateHero() {
   }, 500);
 }
 
-// AUTO SLIDE
+// AUTO SLIDER
 setInterval(updateHero, 4000);
-// AUTO CHANGE
 
+
+// ======================
 // SCROLL TO CONTACT
+// ======================
 
 function scrollToForm(){
 
-  document
-    .getElementById("contact")
-    .scrollIntoView({
+  const contact =
+    document.getElementById("contact");
+
+  if(contact){
+    contact.scrollIntoView({
       behavior:"smooth"
     });
+  }
 }
 
-// SAVE LEAD
+
+// ======================
+// EMAILJS INIT
+// ======================
+
+(function(){
 
   emailjs.init("YOUR_PUBLIC_KEY");
 
-  document
-    .getElementById("leadForm")
-    .addEventListener("submit", function (e) {
-      e.preventDefault();
+})();
 
-      const params = {
-        name: document.getElementById("name").value,
-        phone: document.getElementById("phone").value,
-        email: document.getElementById("email").value,
-        message: document.getElementById("msg").value,
-      };
 
-      emailjs
-        .send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
-        .then(function () {
-          alert("Message sent successfully!");
-          document.getElementById("leadForm").reset();
-        })
-        .catch(function (error) {
-          alert("Failed to send message");
-          console.log(error);
-        });
+// ======================
+// CONTACT FORM
+// ======================
+
+const leadForm =
+  document.getElementById("leadForm");
+
+if(leadForm){
+
+  leadForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const params = {
+
+      name:
+        document.getElementById("name").value,
+
+      phone:
+        document.getElementById("phone").value,
+
+      email:
+        document.getElementById("email").value,
+
+      message:
+        document.getElementById("msg").value
+    };
+
+    emailjs.send(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      params
+    )
+
+    .then(function(){
+
+      alert("Message sent successfully!");
+
+      leadForm.reset();
+
+    })
+
+    .catch(function(error){
+
+      alert("Failed to send message");
+
+      console.log(error);
+
     });
 
+  });
 
+}
+
+
+// ======================
 // STICKY HEADER
+// ======================
 
 window.addEventListener("scroll", () => {
 
@@ -122,14 +164,20 @@ window.addEventListener("scroll", () => {
     document.getElementById("header");
 
   if(window.scrollY > 50){
+
     header.classList.add("scrolled");
-  }
-  else{
+
+  } else {
+
     header.classList.remove("scrolled");
   }
+
 });
 
+
+// ======================
 // SCROLL ANIMATION
+// ======================
 
 const observer =
   new IntersectionObserver(entries => {
@@ -140,6 +188,7 @@ const observer =
 
         entry.target.classList.add("show");
       }
+
     });
 
   }, {
@@ -149,18 +198,32 @@ const observer =
 document
   .querySelectorAll(".fade-in")
   .forEach(el => {
+
     observer.observe(el);
+
   });
 
-//see more toggle
-function toggleMore(id, btn) {
-  const content = document.getElementById(id);
 
-  if (content.style.display === "block") {
-    content.style.display = "none";
+// ======================
+// SEE MORE TOGGLE
+// ======================
+
+function toggleMore(id, btn) {
+
+  const content =
+    document.getElementById(id);
+
+  if(content.classList.contains("show")){
+
+    content.classList.remove("show");
+
     btn.innerText = "See More";
+
   } else {
-    content.style.display = "block";
+
+    content.classList.add("show");
+
     btn.innerText = "See Less";
   }
+
 }

@@ -1,0 +1,273 @@
+/* =========================
+   RESET
+========================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family: "Segoe UI", sans-serif;
+  background:#f5f7fb;
+  color:#222;
+  overflow-x:hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:80px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:0 60px;
+
+  background:#ffffff;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+
+  z-index:1000;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  font-size:28px;
+  font-weight:700;
+  color:#0b57d0;
+}
+
+.logo-image{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+nav{
+  display:flex;
+  gap:35px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#222;
+  font-size:17px;
+  font-weight:600;
+  position:relative;
+  transition:0.3s;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+
+  width:0%;
+  height:3px;
+
+  background:#0b57d0;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#0b57d0;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* =========================
+   SERVICES SECTION
+========================= */
+#services{
+  padding:140px 60px 80px;
+  min-height:100vh;
+}
+
+.section-title{
+  text-align:center;
+  font-size:42px;
+  color:#0b57d0;
+  margin-bottom:60px;
+  font-weight:800;
+}
+
+/* =========================
+   SERVICES GRID
+========================= */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+/* =========================
+   SERVICE CARD
+========================= */
+.services-card{
+  background:#fff;
+  padding:35px 30px;
+  border-radius:20px;
+
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+  transition:0.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+.services-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:6px;
+
+  background:linear-gradient(90deg,#0b57d0,#00b4ff);
+}
+
+.services-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+.services-card h3{
+  font-size:24px;
+  margin-bottom:18px;
+  color:#0b57d0;
+}
+
+.services-card p{
+  font-size:16px;
+  line-height:1.7;
+  color:#555;
+}
+
+/* =========================
+   FADE ANIMATION
+========================= */
+.fade-in{
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeUp 1s ease forwards;
+}
+
+.fade-in:nth-child(1){ animation-delay:0.2s; }
+.fade-in:nth-child(2){ animation-delay:0.4s; }
+.fade-in:nth-child(3){ animation-delay:0.6s; }
+.fade-in:nth-child(4){ animation-delay:0.8s; }
+.fade-in:nth-child(5){ animation-delay:1s; }
+.fade-in:nth-child(6){ animation-delay:1.2s; }
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+.whatsapp{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+
+  background:#25d366;
+  color:#fff;
+
+  padding:14px 22px;
+  border-radius:50px;
+
+  text-decoration:none;
+  font-weight:700;
+
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+
+  transition:0.3s;
+  z-index:999;
+}
+
+.whatsapp:hover{
+  transform:scale(1.08);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: #0b1b3f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:900px){
+
+  header{
+    padding:0 20px;
+    flex-direction:column;
+    height:auto;
+    padding-top:15px;
+    padding-bottom:15px;
+  }
+
+  nav{
+    margin-top:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+  }
+
+  #services{
+    padding:170px 20px 60px;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+}
+
+@media(max-width:600px){
+
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services-card{
+    padding:28px 22px;
+  }
+
+  .services-card h3{
+    font-size:22px;
+  }
+
+  .logo{
+    font-size:24px;
+  }
+}
